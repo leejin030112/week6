@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>우리도 언젠간 산산이 부서져</title>
+
+<style>
+
+  @font-face {
+    font-family: 'PyeojinGothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2504-1@1.0/PyeojinGothic-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'PyeojinGothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2504-1@1.0/PyeojinGothic-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'PyeojinGothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2504-1@1.0/PyeojinGothic-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+  }
+
+  *{
+    box-sizing:border-box;
+  }
+
+  html, body{
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
+    /* background-color: aliceblue; */
+    background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+    font-family: 'PyeojinGothic';
+  }
+
+
+  .container{
+
+    position:relative;
+    width:1150px;
+    height:1000px;
+
+  }
+
+
+  .inputBox{
+
+    position:absolute;
+    left:20px;
+    top:14px;
+    width:300px;
+    height:490px;
+    background:#a6ff00fe;
+
+  }
+
+
+  .inputBox textarea{
+
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    border:none;
+    outline:none;
+    resize:none;
+    background:transparent;
+    padding:5px 10px;
+    font-size:100px;
+    line-height:1.2;
+    font-weight:bold;
+    text-align: center;
+    font-family:Arial, sans-serif;
+    color:black;
+
+  }
+
+
+
+  .text{
+
+    position:absolute;
+    left:45px;
+    top:500px;
+    font-size:100px;
+    line-height:1.2;
+    font-weight:bold;
+
+  }
+
+
+  .blue{
+    color:#3333FF;
+    text-decoration: underline;
+    text-decoration-thickness: 5px;
+    text-underline-offset: 15px;
+  }
+
+  .reset{
+    position:absolute;
+    top:15px;
+    left:350px;
+    padding:10px;
+    font-size:30px;
+    font-weight:bold;
+    z-index:100;
+    cursor:pointer;
+    text-decoration: underline;
+    text-decoration-thickness: 5px;
+    text-underline-offset: 10px;
+  }
+
+
+  .circles{
+
+    position:absolute;
+    left:800px;
+    top:8px;
+    width:462px;
+    height:1000px;
+    overflow:hidden;
+
+  }
+
+  .circleTrack{
+
+    position:absolute;
+    top:-616px;
+    left:0;
+    display:flex;
+    flex-direction:column;
+    animation:circleDown 12s linear infinite;
+
+  }
+
+  .circleGrid{
+
+    display:grid;
+    grid-template-columns:repeat(3, 154px);
+    grid-template-rows:repeat(4, 154px);
+    width:462px;
+    height:616px;
+
+  }
+
+  .circle{
+
+    width:154px;
+    height:154px;
+    border-radius:50%;
+    background:#a6ff00fe;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:56px;
+    font-weight:bold;
+    color:black;
+    cursor:pointer;
+    position:relative;
+
+  }
+
+  .smallCircle{
+
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:#a6ff00fe;
+    position:absolute;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+    font-weight:bold;
+    color:black;
+
+  }
+
+
+  @keyframes circleDown{
+
+    from{
+      transform:translateY(0);
+    }
+
+    to{
+      transform:translateY(616px);
+    }
+
+  }
+
+
+  .blueLeft{
+
+    position:absolute;
+    left:360px;
+    top:0;
+    width:400px;
+    height:1000px;
+    color:#3333FF;
+    font-size:12px;
+    line-height:1;
+    font-weight:bold;
+    writing-mode:vertical-rl;
+    overflow:hidden;
+
+  }
+
+
+  .blueRight{
+
+    position:absolute;
+    left:1300px;
+    top:0;
+    width:300px;
+    height:1000px;
+    color:#3333FF;
+    font-size:12px;
+    line-height:1;
+    font-weight:bold;
+    writing-mode:vertical-rl;
+    overflow:hidden;
+
+  }
+
+  .flowText{
+
+    position:absolute;
+    top:-1000px;
+    white-space:nowrap;
+    writing-mode:vertical-rl;
+    animation:flowDown 15s linear infinite;
+
+  }
+
+
+  .blueLeft .flowText:nth-child(1){
+    right:0;
+  }
+  .blueLeft .flowText:nth-child(2){
+    right:20px;
+    animation-delay:-7.5s;
+  }
+  .blueRight .flowText:nth-child(1){
+    left:0;
+  }
+  .blueRight .flowText:nth-child(2){
+    left:20px;
+    animation-delay:-7.5s;
+  }
+
+
+  @keyframes flowDown{
+
+    from{
+      transform:translateY(0);
+    }
+
+    to{
+      transform:translateY(2000px);
+    }
+
+  }
+
+
+  .footer-left{
+    position:absolute;
+    bottom:20px;
+    left:20px;
+    font-size:12px;
+  }
+  .footer-center{
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:12px;
+  }
+  .footer-right{
+    position:absolute;
+    bottom:20px;
+    right:20px;
+    font-size:12px;
+  }
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+  <div class="inputBox">
+
+    <textarea>우리도
+언젠간
+산산이
+부서져</textarea>
+
+  </div>
+
+
+  <div class="text">
+
+    <span class="blue">계곡</span>과<br>
+    흘러갈<br>
+    테니까
+
+  </div>
+
+  <div class="reset">
+    처음부터
+  </div>
+
+  <div class="blueLeft">
+
+    <div class="flowText"></div>
+    <div class="flowText"></div>
+
+  </div>
+
+
+  <div class="blueRight">
+
+    <div class="flowText"></div>
+    <div class="flowText"></div>
+
+  </div>
+
+
+  <div class="circles">
+
+    <div class="circleTrack">
+
+
+      <div class="circleGrid fixedGrid">
+
+        <div class="circle">우</div>
+        <div class="circle">리</div>
+        <div class="circle">도</div>
+
+        <div class="circle">언</div>
+        <div class="circle">젠</div>
+        <div class="circle">간</div>
+
+        <div class="circle">산</div>
+        <div class="circle">산</div>
+        <div class="circle">이</div>
+
+        <div class="circle">부</div>
+        <div class="circle">서</div>
+        <div class="circle">져</div>
+
+      </div>
+
+
+      <div class="circleGrid inputGrid">
+
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+
+      </div>
+
+
+      <div class="circleGrid inputGrid">
+
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+
+      </div>
+
+
+      <div class="circleGrid inputGrid">
+
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+</div>
+
+
+<footer class="footer-left">
+  © 2026 LEEJIN
+</footer>
+
+<footer class="footer-center">
+  우리도 언젠간 산산이 부서져 계곡과 흘러갈 테니까
+</footer>
+
+<footer class="footer-right">
+  UX미디어스튜디오(AI)
+</footer>
+
+
+<script>
+
+
+let blueText = "계곡과 같이 흐르는 ";
+
+let texts = document.querySelectorAll(".flowText");
+
+
+for(let i = 0; i < texts.length; i++){
+
+  texts[i].innerHTML = blueText.repeat(8);
+
+}
+
+
+let count = 0;
+
+let blue = document.querySelector(".blue");
+
+blue.style.cursor = "pointer";
+
+
+blue.onclick = function(){
+
+  if(count >= 15){
+    return;
+  }
+
+  count++;
+
+
+
+  let leftNew = document.createElement("div");
+
+  leftNew.className = "flowText";
+
+  leftNew.innerHTML = blueText.repeat(8);
+
+  leftNew.style.right = (count + 1) * 20 + "px";
+
+  leftNew.style.animationDelay = -(count * 1.2) + "s";
+
+  document.querySelector(".blueLeft").appendChild(leftNew);
+
+
+
+  let rightNew = document.createElement("div");
+
+  rightNew.className = "flowText";
+
+  rightNew.innerHTML = blueText.repeat(8);
+
+  rightNew.style.left = (count + 1) * 20 + "px";
+
+  rightNew.style.animationDelay = -(count * 1.2) + "s";
+
+  document.querySelector(".blueRight").appendChild(rightNew);
+
+};
+
+
+
+function splitCircle(el){
+
+  let size = el.offsetWidth;
+
+  if(size < 24){
+    return;
+  }
+
+  let parent = el.parentElement;
+  let letter = el.innerHTML;
+
+  let cx = el.offsetLeft + size / 2;
+  let cy = el.offsetTop + size / 2;
+
+  let newSize = size * 0.6;
+
+  for(let i = 0; i < 2; i++){
+
+    let mini = document.createElement("div");
+
+    mini.className = "smallCircle";
+
+    mini.innerHTML = letter;
+
+    let rx = cx + (Math.random() * 60 - 30) - newSize / 2;
+    let ry = cy + (Math.random() * 60 - 30) - newSize / 2;
+
+    mini.style.left = rx + "px";
+    mini.style.top = ry + "px";
+    mini.style.width = newSize + "px";
+    mini.style.height = newSize + "px";
+    mini.style.fontSize = (newSize * 0.35) + "px";
+
+    mini.onclick = function(){
+      splitCircle(this);
+    };
+
+    parent.appendChild(mini);
+
+  }
+
+  el.style.visibility = "hidden";
+
+}
+
+
+let circles = document.querySelectorAll(".circle");
+
+
+for(let i = 0; i < circles.length; i++){
+
+  circles[i].onclick = function(){
+    splitCircle(this);
+  };
+
+}
+
+
+let input = document.querySelector(".inputBox textarea");
+
+let inputGrids = document.querySelectorAll(".inputGrid");
+
+
+function updateInputCircles(){
+
+  let letters = Array.from(
+    input.value.replace(/\s/g, "")
+  );
+
+
+
+  let inputCircles = document.querySelectorAll(
+    ".inputGrid .circle"
+  );
+
+  for(let i = 0; i < inputCircles.length; i++){
+
+    if(letters.length === 0){
+
+      inputCircles[i].innerHTML = "";
+
+    }else{
+    
+      inputCircles[i].innerHTML =
+        letters[i % letters.length];
+
+    }
+
+  }
+
+}
+
+
+input.oninput = function(){
+
+  updateInputCircles();
+
+};
+
+
+input.addEventListener("compositionupdate", function(){
+
+  updateInputCircles();
+
+});
+
+
+input.addEventListener("compositionend", function(){
+
+  updateInputCircles();
+
+});
+
+
+updateInputCircles();
+
+
+
+let reset = document.querySelector(".reset");
+
+reset.onclick = function(){
+
+  location.reload();
+
+};
+
+
+</script>
+
+
+</body>
+
+</html>
